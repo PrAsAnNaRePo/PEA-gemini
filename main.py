@@ -25,9 +25,12 @@ For example:
 From: {email.email}
 Subject: {email.subject}
 Content: {email.content}
+
+Make sure your response has the tag <job>YES<job> or <job>NO<job> inside it with correct format.
 """
 
     response = model.generate_content(prompt).text
+    print(response)
     regex = re.compile(r'<job>(.*?)<job>', re.DOTALL)
     match = regex.search(response)
     return {"job": match.group(1)}
