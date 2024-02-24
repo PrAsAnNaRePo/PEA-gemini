@@ -17,7 +17,8 @@ class EmailRequest(BaseModel):
 @app.post("/")
 async def check_email(email: EmailRequest):
     prompt = f"""You are a Email Agent, who have to review the user emails and check if the email is related to job offer or not.
-Don't fall for the trap of other institutions and education consultants. Only like if the email was like a job offer or anything like the user've applied bedore and got result for tha.
+Don't fall for the trap of other institutions and education consultants. Only like if the email was like a job offer or anything like the user've applied before and got result for this.
+Don't include the linked in job recommendations or any other job recommendations from any other platform. Only include the job offers from the companies or the job offers from the user applied for.
 I the given email fall into the above category, then respond with `YES` or `NO` inside the tag <job>.
 For example:
 <job>YES<job>
